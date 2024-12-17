@@ -17,10 +17,10 @@ use function Dagger\dag;
 #[Doc('Run phpstan against your php codebase')]
 class Phpstan
 {
-    // dagger call phpstan --php-version=8.4 --source=repo_url#branch --path-to-test=src stdout
-    // dagger call phpstan --source=https://github.com/dragoonis/Sylius#2.0 --php-version=8.3 --path-to-test=src stdout
+    // dagger call analyze --php-version=8.4 --source=repo_url#branch --path-to-test=src stdout
+    // dagger call analyze --source=https://github.com/dragoonis/Sylius#2.0 --php-version=8.3 --path-to-test=src stdout
     #[DaggerFunction('phpstan')]
-    public function phpstan(
+    public function analyze(
         string $phpVersion,
         Directory $source,
         string $pathToTest,
