@@ -7,7 +7,7 @@
 Assuming your `source` code is locally here, then it will mount the whole path of `.` and then within that it will test the `.` directory within the current directory
 
 ``` bash
-dagger shell -c 'github.com/dragoonis/dagger-phpstan | phpstan 8.1 . src'
+dagger shell -c 'github.com/dragoonis/dagger-phpstan | analyze 8.1 . src'
 ```
 
 ## Step 1.2 - phpstan test a remote git repo from the CLI
@@ -17,7 +17,7 @@ Assuming you have already run `dagger init` on your local repo, you can referenc
 Note the branch name is separated by a `#` character
 
 ``` bash
-dagger shell -c 'github.com/dragoonis/dagger-phpstan | phpstan 8.1 https://github.com/dragoonis/Sylius\#2.0 src'
+dagger shell -c 'github.com/dragoonis/dagger-phpstan | analyze 8.1 https://github.com/dragoonis/Sylius\#2.0 src'
 ```
 
 ### Step 2 - phpstan test your source using PHP code
