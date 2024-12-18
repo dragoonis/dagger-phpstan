@@ -28,4 +28,18 @@ You can install the phpstan module, into your local project's dagger module, and
 dagger install https://daggerverse.dev/mod/github.com/dragoonis/dagger-phpstan@30d7518bdf42c238940790110c6169cbb7d3dcc9
 ```
 
-Add this code to your local dagger module at `.` dagger/src/<YourModule.php>
+Add this code to your project, to begin calling the module from code. For eample
+
+``` php
+<?php
+    #[DaggerFunction]
+    #[Doc('Run phpstan across the entire symfony codebase')]
+    // dagger call phpstan --source=.
+    public function static(Directory $source): Container
+    {
+        return dag()
+            ->phpstan()
+            ->analyze('8.2', $source, 'src');
+    }
+```
+
