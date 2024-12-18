@@ -37,6 +37,7 @@ class Phpstan
         return dag()->container()
             ->from("jakzal/phpqa:$dockerTag")
             ->withMountedDirectory('/tmp/app', $source)
+            ->withWorkDir('/tmp/app')
             ->withExec(['phpstan', 'analyse', "/tmp/app/$pathToTest"]);
 
     }
