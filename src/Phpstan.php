@@ -42,8 +42,13 @@ class Phpstan
 
         return dag()->container()
             ->from("jakzal/phpqa:$dockerTag")
+            ->withFile(
+                '/usr/bin/composer',
+                dag()->container()->from('composer:2')->file('/usr/bin/composer')
+            )
             ->withMountedDirectory('/tmp/app', $source)
             ->withWorkDir('/tmp/app')
+            ->withExec(['composer', 'install'])
             ->withExec($cmd);
 
     }
