@@ -32,13 +32,13 @@ class PhpstanOptions
         return $this;
     }
     
-    public function buildCliCommand(): string
+    public function buildCliCommand(): array
     {
-        $cmd = '';
+        $cmd = [];
+
         foreach($this->options as $option => $val) {
-            
-            $cmd .= sprintf('--%s=%s ', $option, $val);
-            
+            $cmd[] = sprintf('--%s=%s', $option, $val);
+            // $cmd .= sprintf('--%s=%s ', $option, $val);
         }
         
         return $cmd;
